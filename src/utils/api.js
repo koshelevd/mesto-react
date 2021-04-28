@@ -1,7 +1,7 @@
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable class-methods-use-this */
 /* eslint-disable arrow-parens */
-import {apiOptions} from '../utils/constants';
+import {apiOptions} from './constants';
 
 class Api {
   constructor(options) {
