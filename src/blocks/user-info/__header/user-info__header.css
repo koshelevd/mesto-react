@@ -1,0 +1,18 @@
+.user-info__header {
+  font-weight: 500;
+  font-size: 27px;
+  line-height: 1.21;
+  display: flex;
+  align-items: baseline;
+  position: relative;
+  left: 13px;
+}
+
+@media screen and (min-width: 768px) {
+  .user-info__header {
+    left: 0;
+    font-size: 42px;
+    line-height: 1.14;
+    margin-bottom: 9px;
+  }
+}

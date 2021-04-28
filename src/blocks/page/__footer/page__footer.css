@@ -1,0 +1,12 @@
+.page__footer {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 19px 36px;
+}
+
+@media screen and (min-width: 920px) {
+  .page__footer {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}

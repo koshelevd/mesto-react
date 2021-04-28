@@ -1,0 +1,9 @@
+.popup__validation-error {
+  color: #ff0000;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.21;
+  margin-top: 5px;
+  min-height: 14px;
+  visibility: hidden;
+}

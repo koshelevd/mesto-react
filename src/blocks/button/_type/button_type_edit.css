@@ -1,0 +1,15 @@
+.button_type_edit {
+  background-image: url(../../../images/button-edit.svg);
+  background-size: cover;
+  width: 18px;
+  height: 18px;
+  padding-right: 18px;
+}
+
+@media screen and (min-width: 768px) {
+  .button_type_edit {
+    width: 24px;
+    height: 24px;
+    padding-right: 24px;
+  }
+}

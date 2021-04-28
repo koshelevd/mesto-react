@@ -1,0 +1,7 @@
+.popup__container_blank {
+  max-width: 75vw;
+  width: auto;
+  background-color: initial;
+  border-radius: 0;
+  padding: 0;
+}

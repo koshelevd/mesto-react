@@ -1,0 +1,29 @@
+.popup__input_type_submit {
+  margin-top: 26px;
+  min-height: 46px;
+  border-radius: 2px;
+  background-color: #000;
+  color: #fff;
+}
+
+.popup__input_type_submit:hover {
+  opacity: .8;
+  cursor: pointer;
+}
+
+.popup__input_type_submit:disabled {
+  opacity: .2;
+  background-color: #fff;
+  color: #000;
+  border: #000 1px solid;
+  cursor: default;
+}
+
+@media screen and (min-width: 920px) {
+  .popup__input_type_submit {
+    margin-top: 29px;
+    min-height: 50px;
+    border-radius: 2px;
+    font-size: 18px;
+  }
+}

@@ -1,0 +1,16 @@
+.button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition-duration: .4s;
+  transition-timing-function: ease-in-out;
+}
+
+.button:hover {
+  opacity: .6;
+}
+
+.button:focus {
+  outline: none;
+}

@@ -1,0 +1,17 @@
+.user-info__caption {
+  display: flex;
+  flex-direction: column;
+  margin-top: 27px;
+}
+
+@media screen and (min-width: 425px) {
+  .user-info__caption {
+    margin-top: 0;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .user-info__caption {
+    margin-left: 30px;
+  }
+}

@@ -1,0 +1,10 @@
+.button_type_like {
+  background-image: url(../../../images/button-like.svg);
+  background-size: cover;
+  width: 21px;
+  height: 18px;
+}
+
+.button_type_like:hover {
+  opacity: .5;
+}
