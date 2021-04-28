@@ -39,26 +39,23 @@ function App() {
       <Header />
       <Main onEditAvatar={handleEditAvatarClick} onEditProfile={handleEditProfileClick} onAddPlace={handleAddPlaceClick} onCardClick={handleCardClick} />
       <Footer />
-      <PopupWithForm title="Редактировать профиль" name="edit" isOpen={isEditProfilePopupOpen} onClose={closeAllPopups}>
+      <PopupWithForm title="Редактировать профиль" name="edit" isOpen={isEditProfilePopupOpen} onClose={closeAllPopups} buttonText="Сохранить">
         <input type="text" className="popup__input popup__input_type_text" placeholder="Имя Фамилия" name="input-name" minLength="2" maxLength="40" required />
         <span className="popup__validation-error" id="input-name-error"></span>
         <input type="text" className="popup__input popup__input_type_text" placeholder="О себе" name="input-description" minLength="2" maxLength="200" required />
         <span className="popup__validation-error" id="input-description-error"></span>
-        <input type="submit" className="popup__input popup__input_type_submit smoothly" name='submit-button' value="Сохранить" disabled />
       </PopupWithForm>
 
-      <PopupWithForm title="Новое место" name="add" isOpen={isAddPlacePopupOpen} onClose={closeAllPopups}>
+      <PopupWithForm title="Новое место" name="add" isOpen={isAddPlacePopupOpen} onClose={closeAllPopups} buttonText="Создать">
         <input type="text" className="popup__input popup__input_type_text" placeholder="Название" name="input-title" minLength="2" maxLength="30" required />
         <span className="popup__validation-error" id="input-title-error">Вы пропустили это поле.</span>
         <input type="url" className="popup__input popup__input_type_text" placeholder="Ссылка на картинку" name="input-link" required />
         <span className="popup__validation-error" id="input-link-error">Введите адрес сайта.</span>
-        <input type="submit" className="popup__input popup__input_type_submit smoothly" name='submit-button' value="Создать" disabled />
       </PopupWithForm>
 
-      <PopupWithForm title="Обновить аватар" name="avatar" isOpen={isEditAvatarPopupOpen} onClose={closeAllPopups}>
+      <PopupWithForm title="Обновить аватар" name="avatar" isOpen={isEditAvatarPopupOpen} onClose={closeAllPopups} buttonText="Сохранить">
         <input type="url" className="popup__input popup__input_type_text" placeholder="Ссылка на картинку" name="input-picture-link" required />
         <span className="popup__validation-error" id="input-picture-link-error">Введите адрес сайта.</span>
-        <input type="submit" className="popup__input popup__input_type_submit smoothly" name='submit-button' value="Сохранить" disabled />
       </PopupWithForm>
 
       <PopupWithForm title="Вы уверены?" name="confirm" isOpen={false} onClose={closeAllPopups}>
