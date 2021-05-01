@@ -1,4 +1,6 @@
-function Footer() {
+import React from 'react';
+
+const Footer = React.memo((props) => {
   return (
     <footer className="footer section page__footer">
       <p className="footer__copyright">
@@ -6,6 +8,6 @@ function Footer() {
       </p>
     </footer>
   )
-}
+});
 
 export default Footer;

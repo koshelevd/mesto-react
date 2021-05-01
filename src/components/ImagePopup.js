@@ -1,6 +1,20 @@
-function ImagePopup(props) {
+import React from 'react';
+import { handleOverlayClick, handleEscClose } from '../utils/utils'
+
+const ImagePopup = React.memo((props) => {
+  React.useEffect(() => {
+    document.addEventListener('keydown', e => handleEscClose(e, props.onClose));
+    return (
+      document.removeEventListener('keydown', e => handleEscClose(e, props.onClose))
+    )
+  }, [props.onClose]);
+
   return (
-    <section className={`popup popup_type_image ${props.card !== undefined && "popup_opened"}`} aria-label="Всплывающее изображение">
+    <section 
+      className={`popup popup_type_image ${props.card !== undefined && "popup_opened"}`} 
+      aria-label="Всплывающее изображение"
+      onMouseDown={e => handleOverlayClick(e, props.onClose)}
+    >
       {props.card !== undefined &&
         (<div className="popup__container popup__container_blank">
           <figure className="popup__figure">
@@ -15,6 +29,6 @@ function ImagePopup(props) {
       }
     </section>
   )
-}
+});
 
 export default ImagePopup;

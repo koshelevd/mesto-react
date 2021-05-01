@@ -1,6 +1,20 @@
-function PopupWithForm(props) {
+import React from 'react';
+import { handleOverlayClick, handleEscClose } from '../utils/utils'
+
+const PopupWithForm = React.memo((props) => {
+  React.useEffect(() => {
+    document.addEventListener('keydown', e => handleEscClose(e, props.onClose));
+    return (
+      document.removeEventListener('keydown', e => handleEscClose(e, props.onClose))
+    )
+  }, [props.onClose]);
+
   return (
-    <section className={`popup popup_type_${props.name} ${props.isOpen && "popup_opened"}`} aria-label={props.title}>
+    <section
+      className={`popup popup_type_${props.name} ${props.isOpen && "popup_opened"}`}
+      aria-label={props.title}
+      onMouseDown={e => handleOverlayClick(e, props.onClose)}
+    >
       <div className="popup__container">
         <h2 className="popup__title">{props.title}</h2>
         <form className="popup__form" name={`${props.name}-profile-form`} noValidate onSubmit={props.onSubmit}>
@@ -12,6 +26,6 @@ function PopupWithForm(props) {
       </div>
     </section>
   )
-}
+});
 
 export default PopupWithForm;

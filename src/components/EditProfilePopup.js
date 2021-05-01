@@ -19,6 +19,7 @@ const EditProfilePopup = React.memo((props) => {
   const descriptionErrorClassName = (
     `popup__validation-error ${(!description.isValid && description.validationMessage !== '') && validationParams.activeErrorSelector}`
   );
+  const buttonText = props.isLoading ? 'Сохранение...' : 'Сохранить';
 
   React.useEffect(() => {
     setName({
@@ -31,7 +32,7 @@ const EditProfilePopup = React.memo((props) => {
       isValid: true,
       validationMessage: '',
     });
-  }, [currentUser]);
+  }, [currentUser, props.isOpen]);
 
   function handleNameChange(e) {
     setName({
@@ -64,8 +65,9 @@ const EditProfilePopup = React.memo((props) => {
       isOpen={props.isOpen}
       onClose={props.onClose}
       onSubmit={handleSubmit}
-      buttonText="Сохранить"
-      isValid={name.isValid && description.isValid}>
+      buttonText={buttonText}
+      isValid={name.isValid && description.isValid}
+    >
 
       <input type="text"
         className={nameInputClassName}

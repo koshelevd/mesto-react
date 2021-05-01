@@ -17,6 +17,20 @@ const AddPlacePopup = React.memo((props) => {
   const linkErrorClassName = (
     `popup__validation-error ${(!link.isValid && link.validationMessage !== '') && validationParams.activeErrorSelector}`
   );
+  const buttonText = props.isLoading ? 'Сохранение...' : 'Создать';
+
+  React.useEffect(() => {
+    setTitle({
+      content: '',
+      isValid: false,
+      validationMessage: '',
+    });
+    setLink({
+      content: '',
+      isValid: false,
+      validationMessage: '',
+    });
+  }, [props.isOpen]);
 
   function handleTitleChange(e) {
     setTitle({
@@ -49,8 +63,9 @@ const AddPlacePopup = React.memo((props) => {
       isOpen={props.isOpen}
       onClose={props.onClose}
       onSubmit={handleSubmit}
-      buttonText="Создать"
-      isValid={title.isValid && link.isValid}>
+      buttonText={buttonText}
+      isValid={title.isValid && link.isValid}
+    >
 
       <input
         type="text"

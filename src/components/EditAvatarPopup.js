@@ -4,26 +4,37 @@ import { validationParams } from '../utils/constants'
 
 const EditAvatarPopup = React.memo((props) => {
   const avatarRef = React.useRef()
-  let isValid = (avatarRef === undefined) ? avatarRef.current.validity.valid : false;
-  let validationMessage = (avatarRef === undefined) ? avatarRef.current.validationMessage : '';
+  const [inputValidity, setInputValidity] = React.useState({ isValid: false, validationMessage: '' });
   const inputClassName = (
-    `popup__input popup__input_type_text ${(!isValid && validationMessage !== '') && validationParams.inputErrorSelector}`
+    `popup__input popup__input_type_text 
+     ${(!inputValidity.isValid && inputValidity.validationMessage !== '') && validationParams.inputErrorSelector}`
   );
   const errorClassName = (
-    `popup__validation-error ${(!isValid && validationMessage !== '') && validationParams.activeErrorSelector}`
+    `popup__validation-error 
+     ${(!inputValidity.isValid && inputValidity.validationMessage !== '') && validationParams.activeErrorSelector}`
   );
+  const buttonText = props.isLoading ? 'Сохранение...' : 'Сохранить';
+
+  React.useEffect(() => {
+    setInputValidity({
+      isValid: false,
+      validationMessage: '',
+    });
+    avatarRef.current.value = '';
+  }, [props.isOpen]);
 
   function handleSubmit(e) {
     e.preventDefault();
     props.onUpdateAvatar({
       avatar: avatarRef.current.value,
     });
-    avatarRef.current.value = '';
   }
 
   function handleChange(e) {
-    isValid = e.target.validity.valid;
-    validationMessage = e.target.validationMessage;
+    setInputValidity({
+      isValid: e.target.validity.valid,
+      validationMessage: e.target.validationMessage,
+    });
   }
 
   return (
@@ -33,8 +44,9 @@ const EditAvatarPopup = React.memo((props) => {
       isOpen={props.isOpen} 
       onClose={props.onClose} 
       onSubmit={handleSubmit} 
-      buttonText="Сохранить"
-      isValid={isValid}>
+      buttonText={buttonText}
+      isValid={inputValidity.isValid}
+    >
 
       <input type="url"
         ref={avatarRef}
@@ -44,7 +56,7 @@ const EditAvatarPopup = React.memo((props) => {
         required
         onChange={handleChange}/>
       <span className={errorClassName} id="input-picture-link-error">
-        {validationMessage}
+        {inputValidity.validationMessage}
       </span>
     </PopupWithForm>
   );

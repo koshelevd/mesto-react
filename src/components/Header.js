@@ -1,6 +1,7 @@
 import logo from '../images/header-logo.svg';
+import React from 'react';
 
-function Header() {
+const Header = React.memo((props) => {
   return (
     <header className="header section page__header">
       <a href="/" className="header__link" target="_blank">
@@ -8,6 +9,6 @@ function Header() {
       </a>
     </header>
   )
-}
+});
 
 export default Header;
