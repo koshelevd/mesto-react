@@ -1,0 +1,12 @@
+.top-menu__list {
+  margin: 0;
+  padding: 0 30px 0 0;
+  list-style: none;
+  display: flex;
+}
+
+@media screen and (min-width: 920px) {
+  .top-menu__list {
+    padding-right: 0;
+  }
+}

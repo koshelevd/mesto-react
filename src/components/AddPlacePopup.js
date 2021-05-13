@@ -1,34 +1,50 @@
-import React from 'react';
-import PopupWithForm from './PopupWithForm';
-import { validationParams } from '../utils/constants'
+import React from "react";
+import PopupWithForm from "./PopupWithForm";
+import { validationParams } from "../utils/constants";
 
 const AddPlacePopup = React.memo((props) => {
-  const [title, setTitle] = React.useState({ content: '', isValid: false, validationMessage: '' });
-  const [link, setLink] = React.useState({ content: '', isValid: false, validationMessage: '' });
-  const titleInputClassName = (
-    `popup__input popup__input_type_text ${(!title.isValid && title.validationMessage !== '') && validationParams.inputErrorSelector}`
-  );
-  const titleErrorClassName = (
-    `popup__validation-error ${(!title.isValid && title.validationMessage !== '') && validationParams.activeErrorSelector}`
-  );
-  const linkInputClassName = (
-    `popup__input popup__input_type_text ${(!link.isValid && link.validationMessage !== '') && validationParams.inputErrorSelector}`
-  );
-  const linkErrorClassName = (
-    `popup__validation-error ${(!link.isValid && link.validationMessage !== '') && validationParams.activeErrorSelector}`
-  );
-  const buttonText = props.isLoading ? 'Сохранение...' : 'Создать';
+  const [title, setTitle] = React.useState({
+    content: "",
+    isValid: false,
+    validationMessage: "",
+  });
+  const [link, setLink] = React.useState({
+    content: "",
+    isValid: false,
+    validationMessage: "",
+  });
+  const titleInputClassName = `form__input form__input_type_text ${
+    !title.isValid &&
+    title.validationMessage !== "" &&
+    validationParams.inputErrorSelector
+  }`;
+  const titleErrorClassName = `form__validation-error ${
+    !title.isValid &&
+    title.validationMessage !== "" &&
+    validationParams.activeErrorSelector
+  }`;
+  const linkInputClassName = `form__input form__input_type_text ${
+    !link.isValid &&
+    link.validationMessage !== "" &&
+    validationParams.inputErrorSelector
+  }`;
+  const linkErrorClassName = `form__validation-error ${
+    !link.isValid &&
+    link.validationMessage !== "" &&
+    validationParams.activeErrorSelector
+  }`;
+  const buttonText = props.isLoading ? "Сохранение..." : "Создать";
 
   React.useEffect(() => {
     setTitle({
-      content: '',
+      content: "",
       isValid: false,
-      validationMessage: '',
+      validationMessage: "",
     });
     setLink({
-      content: '',
+      content: "",
       isValid: false,
-      validationMessage: '',
+      validationMessage: "",
     });
   }, [props.isOpen]);
 
@@ -64,9 +80,8 @@ const AddPlacePopup = React.memo((props) => {
       onClose={props.onClose}
       onSubmit={handleSubmit}
       buttonText={buttonText}
-      isValid={title.isValid && link.isValid}
+      isDisabled={!(title.isValid && link.isValid) || props.isLoading}
     >
-
       <input
         type="text"
         className={titleInputClassName}
@@ -76,7 +91,8 @@ const AddPlacePopup = React.memo((props) => {
         maxLength="30"
         required
         value={title.content}
-        onChange={handleTitleChange} />
+        onChange={handleTitleChange}
+      />
       <span className={titleErrorClassName} id="input-title-error">
         {title.validationMessage}
       </span>
@@ -87,11 +103,11 @@ const AddPlacePopup = React.memo((props) => {
         name="input-link"
         required
         value={link.content}
-        onChange={handleLinkChange} />
+        onChange={handleLinkChange}
+      />
       <span className={linkErrorClassName} id="input-link-error">
         {link.validationMessage}
       </span>
-
     </PopupWithForm>
   );
 });

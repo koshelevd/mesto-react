@@ -1,0 +1,13 @@
+.popup__close-button_auth {
+  top: -62px;
+  left: 121px;
+  right: auto;
+}
+
+@media screen and (min-width: 920px) {
+  .popup__close-button_auth {
+    left: auto;
+    top: -49px;
+    right: -49px;
+  }
+}

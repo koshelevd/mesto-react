@@ -1,36 +1,52 @@
-import React from 'react';
-import PopupWithForm from './PopupWithForm';
-import { CurrentUserContext } from '../contexts/CurrentUserContext';
-import { validationParams } from '../utils/constants'
+import React from "react";
+import PopupWithForm from "./PopupWithForm";
+import { CurrentUserContext } from "../contexts/CurrentUserContext";
+import { validationParams } from "../utils/constants";
 
 const EditProfilePopup = React.memo((props) => {
   const currentUser = React.useContext(CurrentUserContext);
-  const [name, setName] = React.useState({ content: '', isValid: false, validationMessage: '' });
-  const [description, setDescription] = React.useState({ content: '', isValid: false, validationMessage: '' });
-  const nameInputClassName = (
-    `popup__input popup__input_type_text ${(!name.isValid && name.validationMessage !== '') && validationParams.inputErrorSelector}`
-  );
-  const nameErrorClassName = (
-    `popup__validation-error ${(!name.isValid && name.validationMessage !== '') && validationParams.activeErrorSelector}`
-  );
-  const descriptionInputClassName = (
-    `popup__input popup__input_type_text ${(!description.isValid && description.validationMessage !== '') && validationParams.inputErrorSelector}`
-  );
-  const descriptionErrorClassName = (
-    `popup__validation-error ${(!description.isValid && description.validationMessage !== '') && validationParams.activeErrorSelector}`
-  );
-  const buttonText = props.isLoading ? 'Сохранение...' : 'Сохранить';
+  const [name, setName] = React.useState({
+    content: "",
+    isValid: false,
+    validationMessage: "",
+  });
+  const [description, setDescription] = React.useState({
+    content: "",
+    isValid: false,
+    validationMessage: "",
+  });
+  const nameInputClassName = `form__input form__input_type_text ${
+    !name.isValid &&
+    name.validationMessage !== "" &&
+    validationParams.inputErrorSelector
+  }`;
+  const nameErrorClassName = `form__validation-error ${
+    !name.isValid &&
+    name.validationMessage !== "" &&
+    validationParams.activeErrorSelector
+  }`;
+  const descriptionInputClassName = `form__input form__input_type_text ${
+    !description.isValid &&
+    description.validationMessage !== "" &&
+    validationParams.inputErrorSelector
+  }`;
+  const descriptionErrorClassName = `form__validation-error ${
+    !description.isValid &&
+    description.validationMessage !== "" &&
+    validationParams.activeErrorSelector
+  }`;
+  const buttonText = props.isLoading ? "Сохранение..." : "Сохранить";
 
   React.useEffect(() => {
     setName({
       content: currentUser.name,
       isValid: true,
-      validationMessage: '',
+      validationMessage: "",
     });
     setDescription({
       content: currentUser.about,
       isValid: true,
-      validationMessage: '',
+      validationMessage: "",
     });
   }, [currentUser, props.isOpen]);
 
@@ -66,10 +82,10 @@ const EditProfilePopup = React.memo((props) => {
       onClose={props.onClose}
       onSubmit={handleSubmit}
       buttonText={buttonText}
-      isValid={name.isValid && description.isValid}
+      isDisabled={!(name.isValid && description.isValid) || props.isLoading}
     >
-
-      <input type="text"
+      <input
+        type="text"
         className={nameInputClassName}
         placeholder="Имя Фамилия"
         name="input-name"
@@ -77,7 +93,8 @@ const EditProfilePopup = React.memo((props) => {
         maxLength="40"
         required
         value={name.content}
-        onChange={handleNameChange} />
+        onChange={handleNameChange}
+      />
       <span className={nameErrorClassName} id="input-name-error">
         {name.validationMessage}
       </span>
@@ -90,11 +107,11 @@ const EditProfilePopup = React.memo((props) => {
         maxLength="200"
         required
         value={description.content}
-        onChange={handleDescriptionChange} />
+        onChange={handleDescriptionChange}
+      />
       <span className={descriptionErrorClassName} id="input-description-error">
         {description.validationMessage}
       </span>
-
     </PopupWithForm>
   );
 });

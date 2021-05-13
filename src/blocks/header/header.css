@@ -1,3 +1,5 @@
 .header {
   border-bottom: rgba(84, 84, 84, .7) solid 1px;
+  display: flex;
+  justify-content: space-between;
 }

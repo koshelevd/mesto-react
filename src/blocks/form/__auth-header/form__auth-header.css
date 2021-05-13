@@ -1,0 +1,14 @@
+.form__auth-header {
+  font-weight: 900;
+  font-size: 20px;
+  line-height: 1.21;
+  margin: -2px 0 28px;
+}
+
+@media screen and (min-width: 920px) {
+  .form__auth-header {
+    font-size: 24px;
+    margin-top: 20px;
+    margin-bottom: 38px;
+  }
+}

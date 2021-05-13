@@ -1,0 +1,16 @@
+.top-menu__item {
+  font-size: 14px;
+  line-height: 1.22;
+  margin-left: 24px;
+}
+
+.top-menu__item:first-of-type {
+  margin-left: 0;
+}
+
+@media screen and (min-width: 920px) {
+  .top-menu__item {
+    font-size: 18px;
+    line-height: 1.22;
+  }
+}

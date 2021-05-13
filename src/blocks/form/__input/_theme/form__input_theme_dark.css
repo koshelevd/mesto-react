@@ -1,0 +1,27 @@
+.form__input_theme_dark {
+  background-color:black;
+  color: #fff;
+  width: 100%;
+  max-width: 358px;
+  margin-bottom: 19px;
+  padding-top: 0;
+  padding-bottom: 9px;
+  box-sizing: border-box;
+  border-bottom: #ccc solid 2px;
+}
+
+.form__input_theme_dark::placeholder {
+  color: #ccc;
+}
+
+.form__input_theme_dark::-webkit-input-placeholder {
+  color: #ccc;
+}
+
+.form__input_theme_dark::-moz-placeholder {
+  color: #ccc;
+}
+
+.form__input_theme_dark:focus {
+  outline: none;
+}

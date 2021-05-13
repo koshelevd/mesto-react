@@ -1,0 +1,13 @@
+.form__auth-submit-group {
+  width: 100%;
+  max-width: 358px;
+  margin-top: 126px;
+}
+
+
+@media screen and (min-width: 920px) {
+  .form__auth-submit-group {
+    margin-top: 170px;
+  }
+}
+
