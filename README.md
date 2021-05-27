@@ -22,3 +22,10 @@ BEM**.
     ```
     $ npm run build
     ```
+
+## Deploy on gh-pages
+    ```
+    $ npm run deploy
+    ```
+
+https://koshelevd.github.io/mesto-react/
