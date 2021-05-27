@@ -1,8 +1,10 @@
-# Спринт 11. Проектная работа "Mesto. Russia."
-## Одиннадцатая проектная работа на курсе Яндекс.Практикума "Веб-разработчик"
+# React project "Mesto. Russia."
 
-Инстаграм-лайк страница абстрактной социальной сети.
+Instagram like page of abstract social network. Implementation on **React**. 
+Project work on the learning course Yandex.Praktikum "Web developer" 
 
-Работа выполнена с использованием *React*, *HTML5*, *CSS3*, *Javascript*.
-Вёрстка адаптивная, респонзивная, использованы технологии *flexbox*, *grid layout*,.
-Применена технология БЭМ. Файлы организованы в соответствии с Nested BEM.
+The work was done using **React**, **JSX**, **Javascript**.
+The layout is adaptive, responsive, **flexbox** and **grid layout** 
+technologies are used.
+**BEM** technology is applied. The files are organized according to **Nested 
+BEM**. 
