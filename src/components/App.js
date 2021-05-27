@@ -33,7 +33,7 @@ function App() {
   const [selectedCard, setSelectedCard] = React.useState(undefined);
   const [cardToDelete, setCardToDelete] = React.useState(undefined);
   const [isLoading, setIsLoading] = React.useState(false);
-  const [loggedIn, setLoggedIn] = React.useState(false);
+  const [loggedIn, setLoggedIn] = React.useState(true);
   const [email, setEmail] = React.useState(undefined);
 
   React.useEffect(() => {
