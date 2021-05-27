@@ -8,3 +8,17 @@ The layout is adaptive, responsive, **flexbox** and **grid layout**
 technologies are used.
 **BEM** technology is applied. The files are organized according to **Nested 
 BEM**. 
+
+## Installing on a local machine 
+    ```
+    $ npm install
+    ```
+## Run app
+    ```
+    $ npm run start
+    ```
+
+## Build app
+    ```
+    $ npm run build
+    ```
